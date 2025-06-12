@@ -311,7 +311,7 @@ def extract_audio(path: str, n_signal: int, sr: int,
     for i in channel_map:
         process = subprocess.Popen(
             [
-                'ffmpeg', '-v', 'error',
+                'ffmpeg', '-threads 1', '-v', 'error',
                 '-ss',
                 str(start_sec),
                 '-i',
