@@ -67,7 +67,7 @@ def load_audio_chunk(path: str, n_signal: int,
     for i in range(channels): 
         process = subprocess.Popen(
             [
-                'ffmpeg', '-hide_banner', '-loglevel', 'panic', '-i', path, 
+                'ffmpeg', '-threads 1','-hide_banner', '-loglevel', 'panic', '-i', path, 
                 '-ar', str(sr),
                 '-f', 's16le',
                 '-filter_complex', 'channelmap=%d-0'%channel_map[i],
